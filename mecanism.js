@@ -313,3 +313,24 @@ function togglePause() {
         inputBox.focus();
     }
 }
+// Fin du jeu (victoire ou défaite)
+function gameOver(victory) {
+    gameActive = false;
+    
+    // Affichage du message de fin
+    const gameOverMsg = document.createElement('div');
+    gameOverMsg.className = 'wave-info';
+    gameOverMsg.textContent = victory ? 'VICTOIRE!' : 'GAME OVER';
+    gameOverMsg.style.color = victory ? '#0ff' : '#f00';
+    gameOverMsg.style.textShadow = victory ? '0 0 10px #0ff, 0 0 20px #0ff' : '0 0 10px #f00, 0 0 20px #f00';
+    gameOverMsg.style.fontSize = '60px';
+    gameContainer.appendChild(gameOverMsg);
+    
+    // Désactivation de la zone de saisie
+    inputBox.disabled = true;
+    
+    // Suppression du message après 5 secondes
+    setTimeout(() => {
+        gameOverMsg.remove();
+    }, 5000);
+}
