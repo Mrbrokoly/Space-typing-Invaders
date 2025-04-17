@@ -13,6 +13,13 @@
         minWordInterval: 800,                 // Intervalle minimum entre les mots
         maxWordInterval: 1500                  // Intervalle maximum entre les mots
     };
+    //Les mots speciales
+    const powerWords = {
+        "feu" :{color:"red",effect: () => showEffect("Pouvoir : Explosion !")},
+        "glace" :{color:"red",effect: () => showEffect("Pouvoir : Enemis ralentis !")},
+        "soin" :{color:"red",effect: () => showEffect("Pouvoir : +20% PV !")},
+        "bouclier" :{color:"red",effect: () => showEffect("Pouvoir : Bouclier activé !")}
+    }
     
     // Liste des mots disponibles (tous de 5 lettres)
     const WORDS = [
