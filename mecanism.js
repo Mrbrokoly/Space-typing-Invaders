@@ -233,6 +233,8 @@ function checkInput() {
             word.element.remove();
             activeWords.splice(index, 1);
             inputBox.value = '';
+            inputBox.focus();
+
 
                 // Création d'une explosion
                 createExplosion(word.element.offsetLeft, word.element.offsetTop);
