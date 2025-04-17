@@ -2,15 +2,15 @@
     // Configuration du jeu
     const CONFIG = {
         waves: 10,                           // Nombre total de vagues
-        initialWordsPerWave: 5,               // Nombre de mots dans la première vague
-        wordsIncreasePerWave: 2,              // Augmentation du nombre de mots par vague
-        initialSpeed: 0.5,                    // Vitesse initiale de chute
+        initialWordsPerWave: 10,               // Nombre de mots dans la première vague
+        wordsIncreasePerWave: 5,              // Augmentation du nombre de mots par vague
+        initialSpeed: 0.3,                    // Vitesse initiale de chute
         speedIncrease: 0.2,                  // Augmentation de vitesse par vague
         lifeDecrease: 10,                     // Perte de vie quand un mot atteint le bas
         scorePerWord: 10,                     // Points gagnés par mot tapé
         wordLength: 5,                        // Longueur des mots
         waveDelay: 3000,                      // Délai entre les vagues
-        minWordInterval: 800,                 // Intervalle minimum entre les mots
+        minWordInterval: 900,                 // Intervalle minimum entre les mots
         maxWordInterval: 1500                  // Intervalle maximum entre les mots
     };
     
