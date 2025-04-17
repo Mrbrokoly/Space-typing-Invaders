@@ -234,9 +234,7 @@ function checkInput() {
             activeWords.splice(index, 1);
             inputBox.value = '';
             
-            // Création d'une explosion
-            createExplosion(word.element.offsetLeft, word.element.offsetTop);
-            
+           
             // Mise à jour des statistiques
             wordsTyped++;
             correctChars += word.text.length;
@@ -250,5 +248,18 @@ function checkInput() {
     if (typed.length > 0) {
         totalChars++;
     }
+}
+// Crée une animation d'explosion
+function createExplosion(x, y) {
+    const explosion = document.createElement('div');
+    explosion.className = 'explosion';
+    explosion.textContent = '💥';
+    explosion.style.left = `${x-25}px`;
+    explosion.style.top = `${y-25}px`;
+    gameContainer.appendChild(explosion);
+    
+    setTimeout(() => {
+        explosion.remove();
+    }, 800);
 }
  
