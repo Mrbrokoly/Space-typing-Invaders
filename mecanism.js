@@ -271,3 +271,24 @@ function updateScore(points) {
     score += points;
     scoreDisplay.textContent = score;
 }
+
+// Réduit la vie du joueur
+function decreaseLife(amount) {
+    life = Math.max(0, life - amount);
+    lifeBar.style.width = `${life}%`;
+    
+    // Change la couleur si la vie est basse
+    if (life <= 60  ) {
+        lifeBar.style.backgroundColor = 'rgb(255, 243, 21)';
+    } if (life <= 30 ) {
+        lifeBar.style.backgroundColor = 'rgba(202, 7, 7, 0.78)';
+    }else{
+        lifeBar.style.backgroundColor = ' #00cc00)';
+    }
+    
+   
+    // Game over si vie à 0
+    if (life === 0) {
+        gameOver();
+    }
+}
