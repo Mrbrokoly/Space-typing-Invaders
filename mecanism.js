@@ -154,3 +154,51 @@ function createWaveWords() {
     spawnNextWord();
 }
 
+  // Fait apparaître un mot à l'écran
+function spawnWord(word) {
+    if (!gameActive || gamePaused) return;
+    
+    const wordElement = document.createElement('span');
+    wordElement.className = 'word';
+    wordElement.textContent = word;
+    
+    // Position aléatoire en haut de l'écran
+    wordElement.style.left = `${Math.random() * (gameContainer.offsetWidth - 100)}px`;
+    wordElement.style.top = '0px';
+    
+    gameContainer.appendChild(wordElement);
+    
+    // Vitesse basée sur la vague actuelle
+    const speed = CONFIG.initialSpeed + ((currentWave-1) * CONFIG.speedIncrease);
+    
+    // Ajout du mot à la liste des mots actifs
+    activeWords.push({
+        text: word,
+        element: wordElement,
+        y: 0,
+        speed: speed,
+        spawnedTime: Date.now()
+    });
+    
+    lastWordTime = Date.now();
+}
+
+// Met à jour la position des mots
+function updateWords() {
+    if (!gameActive || gamePaused) return;
+    
+    activeWords.forEach((word, index) => {
+        word.y += word.speed;
+        word.element.style.top = `${word.y}px`;
+        
+        // Vérifie si le mot a atteint le bas
+        if (word.y > gameContainer.offsetHeight - 50) {
+            word.element.remove();
+            activeWords.splice(index, 1);
+            decreaseLife(CONFIG.lifeDecrease);
+        }
+    });
+    
+    // Mise à jour du WPM (mots par minute)
+    updateWPM();
+}
