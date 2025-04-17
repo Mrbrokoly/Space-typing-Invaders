@@ -277,6 +277,11 @@ function updateWPM() {
     const wpm = Math.round(wordsTyped / minutes) || 0;
     wpmDisplay.textContent = wpm;
 }
+// Calcule et affiche la précision
+function updateAccuracy() {
+    const accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
+    accuracyDisplay.textContent = `${accuracy}%`;
+}
 // Réduit la vie du joueur
 function decreaseLife(amount) {
     life = Math.max(0, life - amount);
