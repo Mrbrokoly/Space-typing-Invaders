@@ -289,9 +289,9 @@ function decreaseLife(amount) {
     
     // Change la couleur si la vie est basse
     if (life <= 60  ) {
-        lifeBar.style.backgroundColor = 'rgb(255, 243, 21)';
+        lifeBar.style.backgroundColor = '#ffcc00';
     } if (life <= 30 ) {
-        lifeBar.style.backgroundColor = 'rgba(202, 7, 7, 0.78)';
+        lifeBar.style.backgroundColor = 'rgba(225, 0, 0, 0.91)';
     }else{
         lifeBar.style.backgroundColor = ' #00cc00)';
     }
