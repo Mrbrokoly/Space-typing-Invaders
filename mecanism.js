@@ -20,3 +20,16 @@
         'radio', 'solar', 'flare', 'crash', 'blast', 'light', 'speed', 'force', 'power', 'drive',
         'pluto', 'venus', 'mars', 'jupit', 'saturn', 'neptun', 'mercur', 'galaxy', 'cosmos', 'nebula'
     ].filter(word => word.length === CONFIG.wordLength);
+
+    
+// Récupération des éléments du DOM
+const gameContainer = document.getElementById('gameContainer');
+const inputBox = document.getElementById('inputBox');
+const scoreDisplay = document.getElementById('score');
+const wpmDisplay = document.getElementById('wpm');
+const accuracyDisplay = document.getElementById('accuracy');
+const waveDisplay = document.getElementById('wave');
+const lifeBar = document.getElementById('lifeBar');
+const pauseButton = document.getElementById('pauseButton');
+const pauseScreen = document.getElementById('pauseScreen');
+const restartButton = document.getElementById('restartButton');
