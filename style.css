@@ -214,7 +214,42 @@ color: transparent;
             50% { transform: scale(1.5); opacity: 0.8; }
             100% { transform: scale(2); opacity: 0; }
         }
+ /* Style des mots qui tombent */
+ .word {
+    position: absolute;
+    font-size: 24px;
+    color: #0f0;
+    user-select: none;
+    text-shadow: 0 0 10px #0f0;
+    font-weight: bold;
+    animation: glow 1.5s infinite alternate;
+}
 
+/* Animation de lueur pour les mots */
+@keyframes glow {
+    from { text-shadow: 0 0 5px #0f0; }
+    to { text-shadow: 0 0 15px #0f0, 0 0 20px #0f0; }
+}
+ /* Animation d'annonce de vague */
+ .wave-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: #fff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    z-index: 100;
+    opacity: 0;
+    animation: waveAnnounce 2s forwards;
+    font-family: 'Orbitron', sans-serif;
+}
+
+@keyframes waveAnnounce {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+}
 
 
 
