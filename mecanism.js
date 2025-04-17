@@ -271,7 +271,12 @@ function updateScore(points) {
     score += points;
     scoreDisplay.textContent = score;
 }
-
+// Calcule et affiche les mots par minute (WPM)
+function updateWPM() {
+    const minutes = (Date.now() - startTime) / 60000;
+    const wpm = Math.round(wordsTyped / minutes) || 0;
+    wpmDisplay.textContent = wpm;
+}
 // Réduit la vie du joueur
 function decreaseLife(amount) {
     life = Math.max(0, life - amount);
