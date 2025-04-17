@@ -334,3 +334,13 @@ function gameOver(victory) {
         gameOverMsg.remove();
     }, 5000);
 }
+// Événements
+inputBox.addEventListener('input', checkInput);
+pauseButton.addEventListener('click', togglePause);
+restartButton.addEventListener('click', togglePause);
+
+// Boucle de jeu principale
+const gameLoop = setInterval(updateWords, 16);
+
+// Initialisation au chargement de la page
+window.addEventListener('load', initGame);
