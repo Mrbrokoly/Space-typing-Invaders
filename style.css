@@ -79,7 +79,18 @@ color: transparent;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
-        
+        #inputBox {
+            width: 80%;
+            padding: 12px;
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #0f0;
+            border: 2px solid #0f0;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: 0 0 10px #0f0;
+            font-family: 'Orbitron', sans-serif;
+        }
         
 
 
