@@ -63,6 +63,7 @@ function initGame() {
     totalChars = 0;
     startTime = Date.now();
     lastWordTime = 0;
+
     
     // Mise à jour de l'affichage
     scoreDisplay.textContent = score;
@@ -70,7 +71,7 @@ function initGame() {
     accuracyDisplay.textContent = '100%';
     wpmDisplay.textContent = '0';
     lifeBar.style.width = '100%';
-}
+    
     // Nettoyage des mots existants
     document.querySelectorAll('.word').forEach(word => word.remove());
     
@@ -81,20 +82,38 @@ function initGame() {
             inputBox.focus();
             
         }
-        // Démarrage de la première vague
-    nextWave();
     })
+   
+    
+    // Ajout d'étoiles en arrière-plan
+    createStars();
+    
+    // Démarrage de la première vague
+    nextWave();
+}
 
-  // Annonce de la vague
-  const waveAnnounce = document.createElement('div');
-  waveAnnounce.className = 'wave-info';
-  waveAnnounce.textContent = `VAGUE ${currentWave}`;
-  gameContainer.appendChild(waveAnnounce);
-  
-  setTimeout(() => {
-      waveAnnounce.remove();
-  }, 2000);
-  // Passage à la vague suivante
+// Création des étoiles en arrière-plan
+function createStars() {
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.style.position = 'absolute';
+        star.style.width = Math.random() * 3 + 'px';
+        star.style.height = star.style.width;
+        star.style.backgroundColor = 'white';
+        star.style.borderRadius = '50%';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.opacity = Math.random();
+        gameContainer.appendChild(star);
+        
+        // Animation des étoiles
+        if (Math.random() > 0.8) {
+            star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite`;
+        }
+    }
+}
+
+// Passage à la vague suivante
 function nextWave() {
     if (!gameActive || gamePaused) return;
     
@@ -154,7 +173,7 @@ function createWaveWords() {
     spawnNextWord();
 }
 
-  // Fait apparaître un mot à l'écran
+// Fait apparaître un mot à l'écran
 function spawnWord(word) {
     if (!gameActive || gamePaused) return;
     
@@ -202,3 +221,4 @@ function updateWords() {
     // Mise à jour du WPM (mots par minute)
     updateWPM();
 }
+ 
