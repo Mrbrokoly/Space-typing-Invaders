@@ -233,7 +233,7 @@ function checkInput() {
             word.element.remove();
             activeWords.splice(index, 1);
             inputBox.value = '';
-            
+
                 // Création d'une explosion
                 createExplosion(word.element.offsetLeft, word.element.offsetTop);
             
@@ -266,3 +266,8 @@ function createExplosion(x, y) {
     }, 800);
 }
  
+// Met à jour le score
+function updateScore(points) {
+    score += points;
+    scoreDisplay.textContent = score;
+}
