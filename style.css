@@ -1,0 +1,32 @@
+ /* Style général en style un peu futiristique mélanger de néon et de vert */
+ body {
+    font-family: 'Orbitron', 'Courier New', monospace;
+    background-color: #000;
+    color:#00ffffde;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    background-image: radial-gradient(circle, #065470d2, #220c7bd3, #000);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+#title{
+    animation: clignoter 4.5s infinite;
+background: linear-gradient(90deg, #00c6ff, #f5ff00, #ff3cac);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+}
+
+@keyframes clignoter {
+    0%, 100%{opacity: 1;}
+    50% {opacity: 0;}
+}
+
+
+
+
+
+
