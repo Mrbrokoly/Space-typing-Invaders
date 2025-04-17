@@ -81,6 +81,76 @@ function initGame() {
             inputBox.focus();
             
         }
+        // Démarrage de la première vague
+    nextWave();
     })
 
+  // Annonce de la vague
+  const waveAnnounce = document.createElement('div');
+  waveAnnounce.className = 'wave-info';
+  waveAnnounce.textContent = `VAGUE ${currentWave}`;
+  gameContainer.appendChild(waveAnnounce);
+  
+  setTimeout(() => {
+      waveAnnounce.remove();
+  }, 2000);
+  // Passage à la vague suivante
+function nextWave() {
+    if (!gameActive || gamePaused) return;
+    
+    currentWave++;
+    waveDisplay.textContent = currentWave;
+    
+    // Annonce de la vague
+    const waveAnnounce = document.createElement('div');
+    waveAnnounce.className = 'wave-info';
+    waveAnnounce.textContent = `VAGUE ${currentWave}`;
+    gameContainer.appendChild(waveAnnounce);
+    
+    setTimeout(() => {
+        waveAnnounce.remove();
+    }, 2000);
+    
+    // Création des mots pour cette vague
+    createWaveWords();
+    
+    // Planification de la prochaine vague si ce n'est pas la dernière
+    if (currentWave < CONFIG.waves) {
+        setTimeout(nextWave, CONFIG.waveDelay + getWordsDuration());
+    } else {
+        // Dernière vague terminée - victoire!
+        setTimeout(() => {
+            if (gameActive) {
+                gameOver(true);
+            }
+        }, getWordsDuration() + 6000);
+    }
+}
+
+// Calcule la durée estimée de la vague actuelle
+function getWordsDuration() {
+    const wordsCount = CONFIG.initialWordsPerWave + (currentWave * CONFIG.wordsIncreasePerWave);
+    return wordsCount * ((CONFIG.minWordInterval + CONFIG.maxWordInterval) / 2);
+}
+
+// Crée les mots pour la vague actuelle
+function createWaveWords() {
+    const wordsCount = CONFIG.initialWordsPerWave + ((currentWave-1) * CONFIG.wordsIncreasePerWave);
+    const shuffledWords = [...WORDS].sort(() => 0.5 - Math.random());
+    const waveWords = shuffledWords.slice(0, wordsCount);
+    
+    let wordCount = 0;
+    const spawnNextWord = () => {
+        if (wordCount < waveWords.length && !gamePaused) {
+            spawnWord(waveWords[wordCount]);
+            wordCount++;
+            
+            // Intervalle aléatoire entre les mots
+            const interval = Math.random() * (CONFIG.maxWordInterval - CONFIG.minWordInterval) + CONFIG.minWordInterval;
+            setTimeout(spawnNextWord, interval);
+        }
+    };
+    
+    spawnNextWord();
+}
 
