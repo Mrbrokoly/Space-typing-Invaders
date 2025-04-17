@@ -61,6 +61,26 @@ color: transparent;
         #WPM{
            color:  #ff99cc;
         }
+         /* Style des statistiques individuelles */
+         .stat {
+            margin: 0 15px;
+            font-size: 18px;
+            text-shadow: 0 0 50px rgb(250, 194, 25);
+        }
+              
+        /* Zone de saisie en bas */
+        #inputContainer {
+            width: 90%;
+            max-width: 1000px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: rgba(0, 17, 0, 0.8);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        
 
 
 
