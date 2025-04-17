@@ -25,6 +25,44 @@ color: transparent;
     50% {opacity: 0;}
 }
 
+   /* Conteneur principal du jeu */
+   #gameContainer {
+    position: relative;
+    flex-grow: 1;
+    width: 90%;
+    max-width: 1000px;
+    margin: 10px auto;
+    border: 2px solid #0f0;
+    box-shadow: 0 0 20px #0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url();
+    background-size: cover;
+}
+        /* Barre de statistiques en haut */
+        #stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background-color: rgba(0, 17, 0, 0.648);
+            border-bottom: 1px solid #0f0;
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+        }
+        #Score{
+            color: #00ffcc;
+        }
+        #Vague{
+           color:  #66ccff;
+        }
+        #Accuracy{
+            color:  #ffff99;
+         }
+
+        #WPM{
+           color:  #ff99cc;
+        }
+
+
 
 
 
