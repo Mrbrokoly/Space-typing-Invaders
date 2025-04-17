@@ -71,5 +71,16 @@ function initGame() {
     wpmDisplay.textContent = '0';
     lifeBar.style.width = '100%';
 }
+    // Nettoyage des mots existants
+    document.querySelectorAll('.word').forEach(word => word.remove());
+    
+    // Focus sur la zone de saisie
+    inputBox.addEventListener("input", () =>{
+        if (inputBox.value.trim() === correctChars) {
+            inputBox.value = "";
+            inputBox.focus();
+            
+        }
+    })
 
 
