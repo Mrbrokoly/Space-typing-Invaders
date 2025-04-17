@@ -234,6 +234,9 @@ function checkInput() {
             activeWords.splice(index, 1);
             inputBox.value = '';
             
+                // Création d'une explosion
+                createExplosion(word.element.offsetLeft, word.element.offsetTop);
+            
            
             // Mise à jour des statistiques
             wordsTyped++;
