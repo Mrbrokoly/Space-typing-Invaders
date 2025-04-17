@@ -197,6 +197,23 @@ color: transparent;
             #restartButton:hover {
                 background: rgba(0, 255, 0, 0.2);
             }
+                 /* Animation d'explosion */
+        .explosion {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('ressource/effet visuel/emp.png');
+            background-size: cover;
+            animation: explode 0.8s forwards;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        @keyframes explode {
+            0% { transform: scale(0.5); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
+        }
 
 
 
