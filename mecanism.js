@@ -302,3 +302,14 @@ function decreaseLife(amount) {
         gameOver();
     }
 }
+function togglePause() {
+    gamePaused = !gamePaused;
+    
+    if (gamePaused) {
+        pauseScreen.style.display = 'flex';
+        inputBox.blur();
+    } else {
+        pauseScreen.style.display = 'none';
+        inputBox.focus();
+    }
+}
