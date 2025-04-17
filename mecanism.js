@@ -221,4 +221,34 @@ function updateWords() {
     // Mise à jour du WPM (mots par minute)
     updateWPM();
 }
+// Vérifie l'entrée utilisateur
+function checkInput() {
+    if (gamePaused) return;
+    
+    const typed = inputBox.value.trim().toLowerCase();
+    
+    activeWords.forEach((word, index) => {
+        if (typed === word.text.toLowerCase()) {
+            // Mot correctement tapé
+            word.element.remove();
+            activeWords.splice(index, 1);
+            inputBox.value = '';
+            
+            // Création d'une explosion
+            createExplosion(word.element.offsetLeft, word.element.offsetTop);
+            
+            // Mise à jour des statistiques
+            wordsTyped++;
+            correctChars += word.text.length;
+            totalChars += word.text.length;
+            updateScore(CONFIG.scorePerWord);
+            updateAccuracy();
+        }
+    });
+    
+    // Compte les caractères tapés (même incorrects) pour la précision
+    if (typed.length > 0) {
+        totalChars++;
+    }
+}
  
