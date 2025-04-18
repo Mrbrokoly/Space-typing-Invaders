@@ -16,9 +16,9 @@
     //Les mots speciales
     const powerWords = {
         "feu" :{color:"red",effect: () => showEffect("Pouvoir : Explosion !")},
-        "glace" :{color:"red",effect: () => showEffect("Pouvoir : Enemis ralentis !")},
-        "soin" :{color:"red",effect: () => showEffect("Pouvoir : +20% PV !")},
-        "bouclier" :{color:"red",effect: () => showEffect("Pouvoir : Bouclier activé !")}
+        "glace" :{color:"blue",effect: () => showEffect("Pouvoir : Enemis ralentis !")},
+        "soin" :{color:"lime",effect: () => showEffect("Pouvoir : +20% PV !")},
+        "bouclier" :{color:"violet",effect: () => showEffect("Pouvoir : Bouclier activé !")}
     }
     
     // Liste des mots disponibles (tous de 5 lettres)
