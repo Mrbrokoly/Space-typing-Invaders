@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000033; 
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 1.5s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.space {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.astronaut {
+    position: absolute;
+    width: 50px; 
+    height: 50px; 
+    background-image: url('images/astronaute.png'); 
+    background-size: cover;
+    animation: float 5s infinite alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px); 
+    }
+}
+
+
+#astronaut1 { top: 10%; left: 20%; animation-delay: 0s; }
+#astronaut2 { top: 30%; left: 50%; animation-delay: 0.5s; }
+#astronaut3 { top: 50%; left: 70%; animation-delay: 1s; }
+#astronaut4 { top: 70%; left: 30%; animation-delay: 1.5s; }
+#astronaut5 { top: 20%; left: 80%; animation-delay: 2s; }
+#astronaut6 { top: 40%; left: 10%; animation-delay: 2.5s; }
+
+
+
