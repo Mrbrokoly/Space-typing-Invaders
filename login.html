@@ -7,14 +7,42 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
+
     <div class="stars">
+        <div class="title">
+            <h3>SPACE TYPING INVADERS</h3>
+         </div>
+
         <div class="space">
             <div class="astronaut" id="astronaut1"></div>
             <div class="astronaut" id="astronaut2"></div>
             <div class="astronaut" id="astronaut3"></div>
             <div class="astronaut" id="astronaut4"></div>
             <div class="astronaut" id="astronaut5"></div>
-            <div class="astronaut" id="astronaut6"></div>          
+            <div class="astronaut" id="astronaut6"></div>    
+            
+          
+            <div class="box">
+                <div class="form">
+                    <h2>Se connecter</h2>
+                    <div class="form-group">
+                        <input type="text" id="username" required>
+                        <label>Nom d'utilisateur</label>
+                    </div>
+            
+                    <div class="form-group">
+                        <input type="password" id="password" required>
+                        <label>Mot de passe</label>
+                    </div>
+                    
+                    <div class="links">
+                        <a href="#">Mot de passe oublié</a>
+                        <a href="#">S'inscrire</a>
+                    </div>
+            
+                    <input type="submit" value="Connexion" id="submitBtn">
+                </div>
+            </div>
         </div>
     </div>
     <script src="login.js"></script>

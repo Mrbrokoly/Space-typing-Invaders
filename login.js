@@ -18,3 +18,21 @@ function createStar() {
 for (let i = 0; i < 100; i++) {
     createStar();
 }
+
+
+
+document.getElementById('submitBtn').addEventListener('click', function(event) {
+    event.preventDefault(); 
+
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    
+    if (username === '' || password === '') {
+        alert('Il y a une erreur : veuillez remplir tous les champs.');
+    } else {
+        
+        window.location.href = " ";
+    }
+});
