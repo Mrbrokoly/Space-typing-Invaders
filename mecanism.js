@@ -3,45 +3,36 @@
         // =============================================
 
         const CONFIG = {
-            waves: 15,                           // Nombre total de vagues
-            initialWordsPerWave: 5,               // Nombre de mots dans la première vague
-            wordsIncreasePerWave: 2,              // Augmentation du nombre de mots par vague
-            initialSpeed: 0.5,                    // Vitesse initiale de chute
-            speedIncrease: 0.15,                  // Augmentation de vitesse par vague
+            waves: 12,                           // Nombre total de vagues
+            initialWordsPerWave: 4,               // Nombre de mots dans la première vague
+            wordsIncreasePerWave: 1,              // Augmentation du nombre de mots par vague
+            initialSpeed: 0.3,                    // Vitesse initiale de chute
+            speedIncrease: 0.1,                  // Augmentation de vitesse par vague
             lifeDecrease: 10,                     // Perte de vie quand un mot atteint le bas
             scorePerWord: 10,                     // Points gagnés par mot tapé
-            wordLength: 5,                        // Longueur des mots
-            waveDelay: 3000,                      // Délai entre les vagues
-            minWordInterval: 800,                 // Intervalle minimum entre les mots
-            maxWordInterval: 1500                 // Intervalle maximum entre les mots
+            wordLength:(4 && 5) ,                        // Longueur des mots
+            waveDelay: 3500,                      // Délai entre les vagues
+            minWordInterval: 1000,                 // Intervalle minimum entre les mots
+            maxWordInterval: 1800                 // Intervalle maximum entre les mots
         };
+
+        
         
         // Liste des mots disponibles (tous de 5 lettres)
         const WORDS = [
-          // 4 lettres
-  "aura", "brio", "cyph", "dune", "envy", "flux", "glow", "hazy", "ikon", "jolt",
-  "kudo", "lure", "myst", "numb", "onyx", "pact", "quip", "rune", "soar", "toil",
-  "vibe", "wisp", "xeno", "yarn", "zest", "blur", "clan", "drip", "echo", "fizz",
-  "gaze", "hype", "iris", "jinx", "mojo", "nook", "peep", "rove", "sync", "tusk",
-  "warp", "yeti", "zany", "epic", "grim", "hush", "jest", "muse", "neon", "omen",
+
 
   // 5 lettres
   "crypt", "vapor", "glide", "lunar", "quake", "wield", "mirth", "creep", "blaze",
   "drone", "pixel", "flare", "siren", "prism", "vigil", "gloom", "risky", "slick",
   "tempo", "vouch", "quark", "tweak", "sonar", "fiend", "hatch", "boost", "zoned",
+  'laser', 'space', 'alien', 'earth', 'orbit', 'comet', 'stars', 'gamma', 'quark', 'pulse',
+  'radio', 'solar', 'flare', 'crash', 'blast', 'light', 'speed', 'force', 'power', 'drive',
+  'pluto', 'venus', 'mars', 'jupit', 'saturn', 'neptun', 'mercur', 'galaxy', 'cosmos', 'nebula'
 
-  // 6 lettres
-  "astral", "evolve", "socket", "thrive", "psyche", "luster", "shiver", "voyage",
-  "glitch", "shroud", "cipher", "hunter", "goblin", "fathom", "bishop", "cosmic",
-  "spiral", "ripple", "rumble", "vortex", "freeze", "charge", "portal", "strike",
 
-  // 7 lettres
-  "phantom", "resolve", "quantum", "zephyr", "nebulae", "crevice", "harvest",
-  "revival", "digital", "mirrors", "journey", "seismic", "process", "venture",
 
-  // 8 lettres
-  "eclipsed", "overload", "illusion", "spectrum", "fragment", "infinity",
-  "unspoken", "syndrome", "backfire", "collapse", "obsidian", "velocity"
+  
 ].filter(word => word.length === CONFIG.wordLength);
         
         // =============================================
@@ -414,15 +405,18 @@
         inputBox.addEventListener('input', checkInput);
         pauseButton.addEventListener('click', togglePause);
         resumeButton.addEventListener('click', togglePause);
-        restartButton.addEventListener('click', initGame);
+        restartButton.addEventListener('click', quitGame, );
         quitButton.addEventListener('click', quitGame);
-        gameOverRestart.addEventListener('click', initGame);
+        gameOverRestart.addEventListener('click', quitGame);
         gameOverQuit.addEventListener('click', quitGame);
+
+
         
         // Démarrer le jeu quand la fenêtre est en focus
         window.addEventListener('focus', () => {
             if (gameActive && !gamePaused) {
                 inputBox.focus();
+                bgSound.play();
             }
         });
         
