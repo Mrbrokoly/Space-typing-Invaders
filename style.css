@@ -1,300 +1,456 @@
-* {
+  /* ===== RESET & BASE STYLES ===== */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
- 
- /* Style général en style un peu acrcade galaxy */
- body {
-    font-family: 'Orbitron', 'Courier New', monospace;
-    background-color: #000;
-    color:#034e4ede;
-    margin: 0;
+
+@font-face {
+    font-family: 'SpaceAge';
+    src: url('https://fonts.cdnfonts.com/css/space-age') format('woff2');
+}
+
+body {
+    font-family: 'SpaceAge', 'Orbitron', sans-serif;
+    background-color: #0a0a12;
+    color: #e0e0e0;
     overflow: hidden;
-    text-align: center;
-    background-image: black;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    
-}
-#title{
-    animation: clignoter 2.5s step-end;
-background: linear-gradient(90deg, #00c6ff, #f5ff00, #ff3cac);
-background-clip: text;
--webkit-background-clip: text;
-color: transparent;
-
-            margin: 10px 0;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 3px;
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at 20% 30%, #1a1a2e 0%, #0a0a12 40%),
+        url('https://assets.codepen.io/13471/stars.png');
+    animation: starsScroll 100s linear infinite;
 }
 
-@keyframes clignoter {
-    0%, 100%{opacity: 1;}
-    50% {opacity: 0;}
+@keyframes starsScroll {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 0 0, -1000px 1000px; }
 }
 
-   /* Conteneur principal du jeu */
-   #gameContainer {
+/* ===== HEADER & TITLE ===== */
+h1 {
+    color: #4df;
+    text-shadow: 0 0 15px #4df, 0 0 30px rgba(68, 221, 255, 0.5);
+    margin: 20px 0;
+    font-size: 3rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
     position: relative;
-    flex-grow: 1;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4df, transparent);
+    box-shadow: 0 0 10px #4df;
+}
+
+@keyframes titleGlow {
+    0% { opacity: 0.8; text-shadow: 0 0 10px #4df; }
+    100% { opacity: 1; text-shadow: 0 0 20px #4df, 0 0 40px rgba(68, 221, 255, 0.7); }
+}
+
+/* ===== STATS BAR ===== */
+#stats {
+    display: flex;
+    justify-content: space-around;
     width: 90%;
     max-width: 1000px;
-    margin: 10px auto;
-    border: 2px solid  #ffcc00;
-    box-shadow: 0 2px 10px #ffcc00;
-    
-    
-    border-radius: 10px;
+    padding: 15px;
+    background-color: rgba(20, 20, 40, 0.7);
+    border: 1px solid #4df;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(68, 221, 255, 0.3);
+    backdrop-filter: blur(5px);
+    position: relative;
     overflow: hidden;
-    background-color: #0a0a0c;
-    background-size: cover;
 }
-        /* Barre de statistiques en haut */
-        #stats {
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-            background-color: rgba(0, 17, 0, 0.648);
-            border-bottom: 1px solid #2a0944;
-            box-shadow: 0 2px 10px #ff10f0;
-        }
-        #Score{
-            color: #66ccff;
-            filter: drop-shadow(0 0 5px #66ccff );
-        }
-        #Vague{
-           color:  #ff10f0;
-           filter: drop-shadow(0 0 5px #ff10f0);
-        }
-        #Accuracy{
-            color:  #ff6b35;
-            filter: drop-shadow(0 0 5px #ff6b35 );
-         }
 
-        #WPM{
-           color:  #39ff14;
-           filter: drop-shadow(0 0 5px #39ff14 );
-        }
-         /* Style des statistiques individuelles */
-         .stat {
-            margin: 0 15px;
-            font-size: 18px;
-            text-shadow: 0 0 50px rgb(250, 194, 25);
-        }
-              
-        /* Zone de saisie en bas */
-        #inputContainer {
-            width: 80%;
-            max-width: 500px;
-            margin: 10px auto;
-            padding: 8px;
-            background-color: rgba(0, 17, 0, 0.8);
-            border: 1px solid #ffcc00bb;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(250, 194, 25, 0.815);
-        }
-        #inputBox {
-            width: 90%;
-            padding: 12px;
-            font-size: 18px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color:#ffcc00bb ;
-            border: 2px solid #ffcc00bb;
-            border-radius: 5px;
-            outline: none;
-            box-shadow: 0 0 10px #ffcc00bb;
-            font-family: 'Orbitron', sans-serif;
-        }
-           /* Barre de vie */
-           #lifeBarContainer {
-            width: 9%;
-            max-width: 1000px;
-            height: 20px;
-            background-color: rgba(0, 17, 0, 0.8);
-            margin: 0 auto;
-            
-            border-radius: 10px;
-            overflow: hidden;
-           
-        }
-        #lifeBar {
-            height: 100%;
-            background:  #00cc00;
-            width: 100%;
-            transition: width 0.3s;
-        }
-          /* Bouton de pause */
-          #pauseButton {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #ffcc00;
-            border: 1px solid #ffcc00;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            z-index: 100;
-        }
-        #pauseButton:hover {
-            background: rgba(255, 234, 0, 0.2);
-        }
-        
-         /* ===== PAUSE MENU ===== */
-         #pauseButton {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #0f0;
-            border: 1px solid #0f0;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            z-index: 100;
-        }
-        
-        #pauseButton:hover {
-            background: rgba(0, 255, 0, 0.2);
-        }
-        
-        #pauseScreen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 200;
-            color: #0f0;
-        }
-        
-        #pauseScreen h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px #0f0;
-        }
-        
-        .menu-button {
-            margin: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #0f0;
-            border: 1px solid #0f0;
-            border-radius: 5px;
-            padding: 12px 25px;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            min-width: 200px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .menu-button:hover {
-            background: rgba(0, 255, 0, 0.2);
-            transform: scale(1.05);
-        }
-        
-        /* ===== GAME OVER SCREEN ===== */
-        .game-over-screen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 200;
-        }
-        
-        .game-over-screen h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px;
-        }
-        
-        .victory {
-            color: #0ff;
-            text-shadow: 0 0 15px #0ff;
-        }
-        
-        .defeat {
-            color: rgb(247, 61, 61);
-            text-shadow: 0 0 15px rgba(209, 43, 43, 0.795);
-        }
-
-
-
-
-
-                 /* Animation d'explosion */
-        .explosion {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-image: url('ressource/effet visuel/emp.png');
-            background-size: cover;
-            animation: explode 0.8s forwards;
-            z-index: 10;
-            pointer-events: none;
-        }
-        
-        @keyframes explode {
-            0% { transform: scale(0.5); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.8; }
-            100% { transform: scale(2); opacity: 0; }
-        }
- /* Style des mots qui tombent */
- .word {
+#stats::before {
+    content: '';
     position: absolute;
-    font-size: 24px;
-    color: #ffff;
-    user-select: none;
-    text-shadow: 0 0 10px #ffff;
-    font-weight: bold;
-    
-   
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(68, 221, 255, 0.1), transparent);
+    animation: statsGlow 3s linear infinite;
 }
 
-/* Animation de lueur pour les mots */
-@keyframes glow {
-    from { text-shadow: 0 0 5px #ffff; }
-    to { text-shadow: 0 0 15px #ffff, 0 0 20px #ffff; }
+@keyframes statsGlow {
+    100% { left: 100%; }
 }
- /* Animation d'annonce de vague */
- .wave-info {
+
+.stat {
+    margin: 0 15px;
+    font-size: 1.1rem;
+    text-shadow: 0 0 8px rgba(68, 221, 255, 0.7);
+    display: flex;
+    align-items: center;
+}
+
+.stat::before {
+    content: '◉';
+    color: #4df;
+    margin-right: 8px;
+    font-size: 0.8rem;
+}
+
+/* ===== GAME CONTAINER ===== */
+#gameContainer {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 60vh;
+    margin: 0 auto 20px;
+    border: 2px solid #4df;
+    box-shadow: 0 0 30px rgba(68, 221, 255, 0.4), inset 0 0 20px rgba(68, 221, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    background-image: 
+        url('https://assets.codepen.io/13471/space-bg.jpg'),
+        linear-gradient(to bottom, #1a1a2e, #0a0a12);
+    background-blend-mode: overlay;
+    background-size: cover;
+    position: relative;
+}
+
+#gameContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, rgba(68, 221, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(68, 221, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* ===== LIFE BAR ===== */
+#lifeBarContainer {
+    width: 90%;
+    max-width: 1000px;
+    height: 25px;
+    background-color: rgba(20, 20, 40, 0.7);
+    margin-bottom: 20px;
+    border: 1px solid #4df;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(68, 221, 255, 0.3);
+    position: relative;
+}
+
+#lifeBar {
+    height: 100%;
+    background: linear-gradient(90deg, #4df, #38a);
+    width: 100%;
+    transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+#lifeBar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    animation: lifeBarShine 2s infinite;
+}
+
+@keyframes lifeBarShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== INPUT AREA ===== */
+#inputContainer {
+    width: 90%;
+    max-width: 1000px;
+    padding: 15px;
+    background-color: rgba(20, 20, 40, 0.7);
+    border: 1px solid #4df;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(68, 221, 255, 0.3);
+    backdrop-filter: blur(5px);
+    position: relative;
+}
+
+#inputBox {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.3rem;
+    background-color: rgba(10, 10, 20, 0.8);
+    color: #4df;
+    border: 2px solid #4df;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    font-family: 'SpaceAge', sans-serif;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(68, 221, 255, 0.3) inset;
+}
+
+#inputBox:focus {
+    border-color: #8af;
+    box-shadow: 0 0 20px rgba(136, 170, 255, 0.5), 0 0 10px rgba(68, 221, 255, 0.3) inset;
+}
+
+/* ===== GAME ELEMENTS ===== */
+.word {
+    position: absolute;
+    font-size: 1.8rem;
+    color: #fff;
+    user-select: none;
+    text-shadow: 0 0 10px #4df, 0 0 20px rgba(68, 221, 255, 0.7);
+    font-weight: bold;
+    animation: float 3s ease-in-out infinite, wordGlow 2s ease-in-out infinite alternate;
+    transform-origin: center;
+    z-index: 5;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes wordGlow {
+    0% { text-shadow: 0 0 10px #4df, 0 0 20px rgba(68, 221, 255, 0.5); }
+    100% { text-shadow: 0 0 15px #8af, 0 0 30px rgba(136, 170, 255, 0.7); }
+}
+
+/* ===== EFFECTS ===== */
+.explosion {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('https://assets.codepen.io/13471/explosion.gif');
+    background-size: cover;
+    animation: explode 0.8s forwards;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes explode {
+    0% { transform: scale(0.3); opacity: 1; filter: brightness(2); }
+    50% { transform: scale(1.5); opacity: 0.8; filter: brightness(3); }
+    100% { transform: scale(2); opacity: 0; filter: brightness(1); }
+}
+
+.wave-info {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 48px;
+    font-size: 4rem;
     color: #fff;
-    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    text-shadow: 0 0 15px #4df, 0 0 30px #4df;
     z-index: 100;
     opacity: 0;
-    animation: waveAnnounce 2s forwards;
-    font-family: 'Orbitron', sans-serif;
+    animation: waveAnnounce 2.5s forwards;
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
 @keyframes waveAnnounce {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    80% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
 }
 
+/* ===== PARTICLES ===== */
+.particle {
+    position: absolute;
+    background-color: rgba(68, 221, 255, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: particleFloat linear infinite;
+}
 
+@keyframes particleFloat {
+    to { transform: translateY(-100vh); }
+}
 
+/* ===== PAUSE MENU ===== */
+#pauseButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(20, 20, 40, 0.7);
+    color: #4df;
+    border: 1px solid #4df;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-family: 'SpaceAge', sans-serif;
+    z-index: 100;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(68, 221, 255, 0.3);
+}
 
+#pauseButton:hover {
+    background: rgba(68, 221, 255, 0.2);
+    transform: scale(1.05);
+}
 
+#pauseScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 20, 0.95);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    color: #4df;
+    backdrop-filter: blur(5px);
+}
 
+#pauseScreen h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 15px #4df;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+#pauseScreen h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4df, transparent);
+    box-shadow: 0 0 15px #4df;
+}
+
+.menu-button {
+    margin: 15px;
+    background: rgba(20, 20, 40, 0.8);
+    color: #4df;
+    border: 1px solid #4df;
+    border-radius: 8px;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-family: 'SpaceAge', sans-serif;
+    font-size: 1.2rem;
+    min-width: 250px;
+    text-align: center;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(68, 221, 255, 0.2);
+}
+
+.menu-button:hover {
+    background: rgba(68, 221, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(68, 221, 255, 0.4);
+}
+
+/* ===== GAME OVER SCREEN ===== */
+.game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 20, 0.95);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    backdrop-filter: blur(5px);
+}
+
+.game-over-screen h2 {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    letter-spacing: 5px;
+    position: relative;
+}
+
+.game-over-screen h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    box-shadow: 0 0 15px;
+}
+
+.victory {
+    color: #4df;
+    text-shadow: 0 0 20px #4df;
+}
+
+.victory::after {
+    background: linear-gradient(90deg, transparent, #4df, transparent);
+}
+
+.defeat {
+    color: #f44;
+    text-shadow: 0 0 20px #f44;
+}
+
+.defeat::after {
+    background: linear-gradient(90deg, transparent, #f44, transparent);
+}
+
+/* ===== SCAN LINES ===== */
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(20, 20, 40, 0.3) 1px, transparent 1px);
+    background-size: 100% 2px;
+    pointer-events: none;
+    z-index: 2;
+    animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .stat { font-size: 0.9rem; }
+    .word { font-size: 1.4rem; }
+    .wave-info { font-size: 2.5rem; }
+    .game-over-screen h2 { font-size: 2.5rem; }
+}

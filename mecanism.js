@@ -1,6 +1,7 @@
    // =============================================
         // CONFIGURATION DU JEU
         // =============================================
+
         const CONFIG = {
             waves: 15,                           // Nombre total de vagues
             initialWordsPerWave: 5,               // Nombre de mots dans la première vague
@@ -17,10 +18,31 @@
         
         // Liste des mots disponibles (tous de 5 lettres)
         const WORDS = [
-            'laser', 'space', 'alien', 'earth', 'orbit', 'comet', 'stars', 'gamma', 'quark', 'pulse',
-            'radio', 'solar', 'flare', 'crash', 'blast', 'light', 'speed', 'force', 'power', 'drive',
-            'pluto', 'venus', 'mars', 'jupit', 'saturn', 'neptun', 'mercur', 'galaxy', 'cosmos', 'nebula'
-        ].filter(word => word.length === CONFIG.wordLength);
+          // 4 lettres
+  "aura", "brio", "cyph", "dune", "envy", "flux", "glow", "hazy", "ikon", "jolt",
+  "kudo", "lure", "myst", "numb", "onyx", "pact", "quip", "rune", "soar", "toil",
+  "vibe", "wisp", "xeno", "yarn", "zest", "blur", "clan", "drip", "echo", "fizz",
+  "gaze", "hype", "iris", "jinx", "mojo", "nook", "peep", "rove", "sync", "tusk",
+  "warp", "yeti", "zany", "epic", "grim", "hush", "jest", "muse", "neon", "omen",
+
+  // 5 lettres
+  "crypt", "vapor", "glide", "lunar", "quake", "wield", "mirth", "creep", "blaze",
+  "drone", "pixel", "flare", "siren", "prism", "vigil", "gloom", "risky", "slick",
+  "tempo", "vouch", "quark", "tweak", "sonar", "fiend", "hatch", "boost", "zoned",
+
+  // 6 lettres
+  "astral", "evolve", "socket", "thrive", "psyche", "luster", "shiver", "voyage",
+  "glitch", "shroud", "cipher", "hunter", "goblin", "fathom", "bishop", "cosmic",
+  "spiral", "ripple", "rumble", "vortex", "freeze", "charge", "portal", "strike",
+
+  // 7 lettres
+  "phantom", "resolve", "quantum", "zephyr", "nebulae", "crevice", "harvest",
+  "revival", "digital", "mirrors", "journey", "seismic", "process", "venture",
+
+  // 8 lettres
+  "eclipsed", "overload", "illusion", "spectrum", "fragment", "infinity",
+  "unspoken", "syndrome", "backfire", "collapse", "obsidian", "velocity"
+].filter(word => word.length === CONFIG.wordLength);
         
         // =============================================
         // ÉLÉMENTS DU DOM
