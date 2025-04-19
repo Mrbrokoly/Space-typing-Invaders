@@ -1,5 +1,4 @@
-  /* ===== RESET & BASE STYLES ===== */
-  * {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -59,7 +58,7 @@ h1::after {
     100% { opacity: 1; text-shadow: 0 0 20px #4df, 0 0 40px rgba(68, 221, 255, 0.7); }
 }
 
-/* ===== STATS BAR ===== */
+/* STATS BAR */
 #stats {
     display: flex;
     justify-content: space-around;
@@ -106,7 +105,7 @@ h1::after {
     font-size: 0.8rem;
 }
 
-/* ===== GAME CONTAINER ===== */
+/*  GAME CONTAINER  */
 #gameContainer {
     position: relative;
     width: 90%;
@@ -139,7 +138,7 @@ h1::after {
     pointer-events: none;
 }
 
-/* ===== LIFE BAR ===== */
+/* LIFE BAR */
 #lifeBarContainer {
     width: 90%;
     max-width: 1000px;
@@ -181,7 +180,7 @@ h1::after {
     100% { transform: translateX(100%); }
 }
 
-/* ===== INPUT AREA ===== */
+/* INPUT AREA */
 #inputContainer {
     width: 90%;
     max-width: 1000px;
@@ -215,7 +214,7 @@ h1::after {
     box-shadow: 0 0 20px rgba(136, 170, 255, 0.5), 0 0 10px rgba(68, 221, 255, 0.3) inset;
 }
 
-/* ===== GAME ELEMENTS ===== */
+/* GAME ELEMENTS */
 .word {
     position: absolute;
     font-size: 1.8rem;
@@ -236,24 +235,6 @@ h1::after {
 @keyframes wordGlow {
     0% { text-shadow: 0 0 10px #4df, 0 0 20px rgba(68, 221, 255, 0.5); }
     100% { text-shadow: 0 0 15px #8af, 0 0 30px rgba(136, 170, 255, 0.7); }
-}
-
-/* ===== EFFECTS ===== */
-.explosion {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-image: url('https://assets.codepen.io/13471/explosion.gif');
-    background-size: cover;
-    animation: explode 0.8s forwards;
-    z-index: 10;
-    pointer-events: none;
-}
-
-@keyframes explode {
-    0% { transform: scale(0.3); opacity: 1; filter: brightness(2); }
-    50% { transform: scale(1.5); opacity: 0.8; filter: brightness(3); }
-    100% { transform: scale(2); opacity: 0; filter: brightness(1); }
 }
 
 .wave-info {
@@ -278,7 +259,7 @@ h1::after {
     100% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
 }
 
-/* ===== PARTICLES ===== */
+/* PARTICLES */
 .particle {
     position: absolute;
     background-color: rgba(68, 221, 255, 0.7);
@@ -292,7 +273,7 @@ h1::after {
     to { transform: translateY(-100vh); }
 }
 
-/* ===== PAUSE MENU ===== */
+/* PAUSE MENU */
 #pauseButton {
     position: absolute;
     top: 15px;
@@ -374,7 +355,7 @@ h1::after {
     box-shadow: 0 0 20px rgba(68, 221, 255, 0.4);
 }
 
-/* ===== GAME OVER SCREEN ===== */
+/* GAME OVER SCREEN */
 .game-over-screen {
     position: absolute;
     top: 0;
@@ -426,7 +407,7 @@ h1::after {
     background: linear-gradient(90deg, transparent, #f44, transparent);
 }
 
-/* ===== SCAN LINES ===== */
+/* SCAN LINES */
 .scanlines {
     position: absolute;
     top: 0;
@@ -446,7 +427,7 @@ h1::after {
     to { background-position: 0 100%; }
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
     .stat { font-size: 0.9rem; }
