@@ -3,14 +3,14 @@
     const CONFIG = {
         waves: 10,                           // Nombre total de vagues
         initialWordsPerWave: 5,               // Nombre de mots dans la première vague
-        wordsIncreasePerWave: 2,              // Augmentation du nombre de mots par vague
-        initialSpeed: 0.5,                    // Vitesse initiale de chute
+        wordsIncreasePerWave: 3,              // Augmentation du nombre de mots par vague
+        initialSpeed: 0.25,                    // Vitesse initiale de chute
         speedIncrease: 0.2,                  // Augmentation de vitesse par vague
         lifeDecrease: 10,                     // Perte de vie quand un mot atteint le bas
         scorePerWord: 10,                     // Points gagnés par mot tapé
         wordLength: 5,                        // Longueur des mots
-        waveDelay: 3000,                      // Délai entre les vagues
-        minWordInterval: 800,                 // Intervalle minimum entre les mots
+        waveDelay: 5000,                      // Délai entre les vagues
+        minWordInterval: 1000,                 // Intervalle minimum entre les mots
         maxWordInterval: 1500                  // Intervalle maximum entre les mots
     };
     //Les mots speciales
@@ -236,13 +236,25 @@ function checkInput() {
     
     activeWords.forEach((word, index) => {
         if (typed === word.text.toLowerCase()) {
+             // Créer l'explosion avant de supprimer le mot
+             
+                const x = word.element.offsetLeft + word.element.offsetWidth/2;
+                const y = word.element.offsetTop + word.element.offsetHeight/2;
+                if (createExplosion == 'functionf') {
+                    createExplosion(x, y);
+                    
+                }
+            
             // Mot correctement tapé
             word.element.remove();
+            
             activeWords.splice(index, 1);
             inputBox.value = '';
+            inputBox.focus();
+
 
                 // Création d'une explosion
-                createExplosion(word.element.offsetLeft, word.element.offsetTop);
+                
             
            
             // Mise à jour des statistiques
@@ -263,14 +275,14 @@ function checkInput() {
 function createExplosion(x, y) {
     const explosion = document.createElement('div');
     explosion.className = 'explosion';
-    explosion.textContent = '💥';
-    explosion.style.left = `${x-25}px`;
-    explosion.style.top = `${y-25}px`;
-    gameContainer.appendChild(explosion);
+    explosion.style.position = 'absolute'
     
-    setTimeout(() => {
-        explosion.remove();
-    }, 800);
+    explosion.style.left = `${x - 15}px`;
+    explosle.top = `${y - 15}px`;
+    explosion.style.background = url('ressource/effet visuel/explosion.png')
+    
+    gameContainer.appendChild(explosion);
+    setTimeout(() => explosion.remove(), 500);
 }
  
 // Met à jour le score
@@ -296,9 +308,9 @@ function decreaseLife(amount) {
     
     // Change la couleur si la vie est basse
     if (life <= 60  ) {
-        lifeBar.style.backgroundColor = 'rgb(255, 243, 21)';
+        lifeBar.style.backgroundColor = '#ffcc00';
     } if (life <= 30 ) {
-        lifeBar.style.backgroundColor = 'rgba(202, 7, 7, 0.78)';
+        lifeBar.style.backgroundColor = 'rgba(225, 0, 0, 0.91)';
     }else{
         lifeBar.style.backgroundColor = ' #00cc00)';
     }
