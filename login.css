@@ -1,7 +1,12 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #0d0d3a; 
+    background-color: #0a0a29; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family:Arial, Helvetica, sans-serif;
+
 }
 
 .title{
@@ -28,15 +33,10 @@ body {
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.5; }
+    0% { opacity: 0.2; }
     100% { opacity: 1; }
 }
 
-body {
-    margin: 0;
-    overflow: hidden;
-    
-}
 
 .space {
     position: relative;
@@ -62,7 +62,6 @@ body {
     }
 }
 
-
 #astronaut1 { top: 10%; left: 20%; animation-delay: 0s; }
 #astronaut2 { top: 30%; left: 50%; animation-delay: 0.5s; }
 #astronaut3 { top: 50%; left: 70%; animation-delay: 1s; }
@@ -71,22 +70,6 @@ body {
 #astronaut6 { top: 40%; left: 10%; animation-delay: 2.5s; }
 
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: var(--second-color);
-    font-family:Arial, Helvetica, sans-serif;
-}
 :root{
     --base-color: #e7f0f3;
     --gray-color: #8f8f8f;
@@ -95,7 +78,7 @@ body{
 
 .box{
     margin-left: 36%;
-    margin-top: 4%;
+    margin-top: 10%;
     position: relative;
     width: 380px;
     height: 420px;
