@@ -1,50 +1,73 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fond d'Espace</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="login.css">
+    <title>Document</title>
 </head>
 <body>
-
-    <div class="stars">
-        <div class="title">
-            <h3>SPACE TYPING INVADERS</h3>
+    <nav class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+            <div class="container-fluid px-5">
+        
+             <button class="navbar-toggler" 
+             type="button"
+             data-bs-toggle="collapse" 
+             data-bs-target="#navbarSupportedContent" 
+             aria-controls="navbarSupportedContent" 
+             aria-expanded="false" 
+             aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+             </button>
+        
+             <div class="collapse navbar-collapse d-flex justify-content-between" 
+             id="navbarSupportedContent">
+        
+             <h1 class="fst-italic text-light"><font color= blue>S</font>pace Typing Invaders</h1>
+             <a href="accueil.html"><button class="btn btn-primary rounded-pill">Home</button></a>
+             </div>
          </div>
+        </nav>
 
-        <div class="space">
-            <div class="astronaut" id="astronaut1"></div>
-            <div class="astronaut" id="astronaut2"></div>
-            <div class="astronaut" id="astronaut3"></div>
-            <div class="astronaut" id="astronaut4"></div>
-            <div class="astronaut" id="astronaut5"></div>
-            <div class="astronaut" id="astronaut6"></div>    
+        <div class="stars">
+            <div class="space">
+                <div class="astronaut" id="astronaut1"></div>
+                <div class="astronaut" id="astronaut2"></div>
+                <div class="astronaut" id="astronaut3"></div>
+                <div class="astronaut" id="astronaut4"></div>
+                <div class="astronaut" id="astronaut5"></div>
+                <div class="astronaut" id="astronaut6"></div>   
+
             
-          
-            <div class="box">
-                <div class="form">
-                    <h2>Se connecter</h2>
-                    <div class="form-group">
-                        <input type="text" id="username" required>
-                        <label>Nom d'utilisateur</label>
+                <div class="box">
+                    <div class="form">
+                        <h2>Login</h2>
+                        <div class="form-group">
+                            <input type="text" id="username" required>
+                            <label>Username</label>
+                        </div>
+                
+                        <div class="form-group">
+                            <input type="password" id="password" required>
+                            <label>Password</label>
+                        </div>
+                        
+                        <div class="links">
+                            <a href="#">forgot password</a>
+                            <a href="#">Sign up</a>
+                        </div>
+                
+                        <input type="submit" value="Sign in" id="submitBtn">
                     </div>
-            
-                    <div class="form-group">
-                        <input type="password" id="password" required>
-                        <label>Mot de passe</label>
-                    </div>
-                    
-                    <div class="links">
-                        <a href="#">Mot de passe oublié</a>
-                        <a href="#">S'inscrire</a>
-                    </div>
-            
-                    <input type="submit" value="Connexion" id="submitBtn">
                 </div>
+                    
             </div>
         </div>
-    </div>
+
     <script src="login.js"></script>
+
 </body>
 </html>
