@@ -1,0 +1,28 @@
+
+#image-right{
+    float: right;
+    margin-right: -115%;
+    margin-top: -58%;
+    width: 80%;
+}
+
+#image-decoration{
+    height: 60vh;
+    border-radius: 60%;
+    animation: float 2s infinite alternate;
+
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px); 
+    }
+}
+
+#footer{
+    margin-top: 40%;
+}
+
