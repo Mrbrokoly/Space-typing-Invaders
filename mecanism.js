@@ -397,6 +397,7 @@
          */
         function quitGame() {
             location.reload();
+            window.location.href = "login.html";
         }
         
         // =============================================

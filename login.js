@@ -33,6 +33,6 @@ document.getElementById('submitBtn').addEventListener('click', function(event) {
         alert('Il y a une erreur : veuillez remplir tous les champs.');
     } else {
         
-        window.location.href = "";
+        window.location.href = "forme.html";
     }
 });
