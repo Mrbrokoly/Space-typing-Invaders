@@ -1,4 +1,5 @@
 # Space-typing-Invaders
+<<<<<<< HEAD
 
 Bienvenue sur notre projet !
 
@@ -13,3 +14,4 @@ Pour installer, suivez ces étapes :
 - Je vous conseiles de ne pas mettre en plein écran le jeu pour une meilleur performance
 - Et il y a encore quelque bug sur le button resume alors je vous invite à utiliser plutôt le reload de navigateur
 ## Merci !
+=======
