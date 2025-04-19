@@ -95,6 +95,7 @@
             startTime = Date.now();
             lastWordTime = 0;
             
+            
             // Masquer les écrans de pause et game over
             pauseScreen.style.display = 'none';
             gameOverScreen.style.display = 'none';
@@ -117,6 +118,7 @@
             // Démarrer la boucle de jeu
             if (gameLoopInterval) clearInterval(gameLoopInterval);
             gameLoopInterval = setInterval(gameLoop, 16);
+            
             
             // Démarrer la première vague
             nextWave();
@@ -406,9 +408,9 @@
         inputBox.addEventListener('input', checkInput);
         pauseButton.addEventListener('click', togglePause);
         resumeButton.addEventListener('click', togglePause);
-        restartButton.addEventListener('click', quitGame, );
+        restartButton.addEventListener('click', initGame );
         quitButton.addEventListener('click', quitGame);
-        gameOverRestart.addEventListener('click', quitGame);
+        gameOverRestart.addEventListener('click', initGame);
         gameOverQuit.addEventListener('click', quitGame);
 
 
