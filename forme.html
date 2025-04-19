@@ -25,11 +25,27 @@
         
         <div id="gameContainer">
             <button id="pauseButton">Pause</button>
-            <div id="pauseScreen">
-                <h2>Jeu en pause </h2>
-                <button id="restartButton">Reprendre</button>
-            </div>
-        </div>
+
+  <!-- Pause Menu -->
+  <div id="pauseScreen">
+    <h2>JEU EN PAUSE</h2>
+    <button class="menu-button" id="resumeButton">Reprendre</button>
+    <button class="menu-button" id="restartButton">Nouvelle Partie</button>
+    <button class="menu-button" id="quitButton">Quitter</button>
+</div>
+
+<!-- Game Over Screen -->
+<div class="game-over-screen" id="gameOverScreen">
+    <h2 id="gameOverTitle">GAME OVER</h2>
+    <div class="stat">Score Final: <span id="finalScore">0</span></div>
+    <div class="stat">WPM: <span id="finalWpm">0</span></div>
+    <div class="stat">Précision: <span id="finalAccuracy">100%</span></div>
+    <button class="menu-button" id="gameOverRestart">Nouvelle Partie</button>
+    <button class="menu-button" id="gameOverQuit">Quitter</button>
+</div>
+</div>
+            
+        
     
         <div id="inputContainer">
             <input type="text" id="inputBox" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Seuls les plus rapides survivront..." autofocus>

@@ -1,4 +1,10 @@
- /* Style général en style un peu futiristique mélanger de néon et de vert */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+ /* Style général en style un peu acrcade galaxy */
  body {
     font-family: 'Orbitron', 'Courier New', monospace;
     background-color: #000;
@@ -137,72 +143,101 @@ color: transparent;
             background: rgba(255, 234, 0, 0.2);
         }
         
-               /* Écran de pause */
+         /* ===== PAUSE MENU ===== */
+         #pauseButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #0f0;
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 100;
+        }
+        
+        #pauseButton:hover {
+            background: rgba(0, 255, 0, 0.2);
+        }
+        
         #pauseScreen {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 200;
-            color: #ffcc00;
-            font-size: 24px;
+            color: #0f0;
         }
         
-        /* Bouton de redémarrage */
-        #restartButton {
-            margin-top: 20px;
+        #pauseScreen h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #0f0;
+        }
+        
+        .menu-button {
+            margin: 10px;
             background: rgba(0, 0, 0, 0.7);
-            color: #ffcc00;
-            border: 1px solid #ffcc00;
+            color: #0f0;
+            border: 1px solid #0f0;
             border-radius: 5px;
-            padding: 10px 20px;
+            padding: 12px 25px;
             cursor: pointer;
             font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
+            font-size: 1.1rem;
+            min-width: 200px;
+            text-align: center;
+            transition: all 0.3s;
         }
         
-        #restartButton:hover {
-            background: rgba(255, 251, 0, 0.2);
+        .menu-button:hover {
+            background: rgba(0, 255, 0, 0.2);
+            transform: scale(1.05);
         }
-               /* Écran de pause */
-               #pauseScreen {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.8);
-                display: none;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                z-index: 200;
-                color: #ffcc00;
-                font-size: 24px;
-            }
-            
-            /* Bouton de redémarrage */
-            #restartButton {
-                margin-top: 20px;
-                background: rgba(0, 0, 0, 0.7);
-                color: #ffcc00;
-                border: 1px solid #ffcc00;
-                border-radius: 5px;
-                padding: 10px 20px;
-                cursor: pointer;
-                font-family: 'Orbitron', sans-serif;
-                font-size: 18px;
-            }
-            
-            #restartButton:hover {
-                background: rgba(255, 234, 0, 0.2);
-            }
+        
+        /* ===== GAME OVER SCREEN ===== */
+        .game-over-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+        }
+        
+        .game-over-screen h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px;
+        }
+        
+        .victory {
+            color: #0ff;
+            text-shadow: 0 0 15px #0ff;
+        }
+        
+        .defeat {
+            color: rgb(247, 61, 61);
+            text-shadow: 0 0 15px rgba(209, 43, 43, 0.795);
+        }
+
+
+
+
+
                  /* Animation d'explosion */
         .explosion {
             position: absolute;
